@@ -1,0 +1,23 @@
+Solved the 4rth problem on day 1
+Climbing stairs
+Using dynamic programming
+Refer the yt video
+https://www.youtube.com/watch?v=Y0lT9Fck7qI&t=926s&pp=ygUOQ2xpbWJpbmcgc3RhcnM%3D
+We can do memoization and remove the steps in the decision tree and come to a final tree where the result of one is equal to the sum of previous two possibilities
+class Solution {
+public:
+    int climbStairs(int n) {
+        if(n<=2){
+            return n;
+        }
+        int a=1;
+        int b=2;
+    int ans=0;
+        for(int i=3;i<=n;i++){
+            ans=a+b;
+            a=b;
+            b=ans;
+        }
+        return b;
+    }
+};
