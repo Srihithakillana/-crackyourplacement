@@ -1,0 +1,34 @@
+Solve the second problem of day 2
+Sort Colors:
+Sort the colors given as 0,1,2
+It can be done in different ways:
+Using Dutch National Flag algorithm:
+Her both low and mid values are initialized to 0
+And high to the last element
+We will compare mid with 0,1,2, 
+if mid is 0 then swap it with low and increment mid and low as the low elements doesnot need revaluation.
+if mid is 1 then leave it and increment 1
+if mid is 2 then swap high and mid andd decrement high only because there is no need to decrement the mid as before all are zeroes.
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        int low=0,mid=0,high=nums.size()-1;
+     while(mid<=high){
+         if(nums[mid]==0){
+             swap(nums[low],nums[mid]);
+             low++;
+             mid++;
+         }
+         else if(nums[mid]==1){
+             mid++;
+         }
+         else{
+             swap(nums[mid],nums[high]);
+             high--;
+         
+             
+     }
+     }
+    }
+    
+};
