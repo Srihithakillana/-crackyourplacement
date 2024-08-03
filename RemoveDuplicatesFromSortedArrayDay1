@@ -1,0 +1,37 @@
+Third problem of Day 1
+To remove dulpicated for a sorted array
+Only unique elements in the front and the remaining elements should be in the same positions i.e.
+if nums=[1,1,2,2,3,3,4,4]
+then it should return as 
+answer is 4 ans the nums should be [1,2,3,4,3,3,4,4]
+To do this we have to check every element from index 1 with before element
+if they are not equal then make the index j as index i and the unique elements are adjacent and increment j
+return j as the size of unique elements
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int j=1;
+        for(int i=1;i<nums.size();i++){
+            if(nums[i]!=nums[i-1]){
+                nums[j]=nums[i];
+                j++;
+            }
+        }
+        return j;
+    }
+};
+Then thought about using a set 
+then got to know that there is no need to add the element from the array just say  set<int>s(nums.begin(),nums.end());
+and then add the elements at the front and return the size of the set.
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        set<int>s(nums.begin(),nums.end());
+        int i=0;
+        for(int n:s){
+            nums[i]=n;
+            i++;
+        }
+        return s.size();
+    }
+};
