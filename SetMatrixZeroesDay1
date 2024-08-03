@@ -1,0 +1,53 @@
+Did my sixth problem of day1
+Here 
+1 We will check if there is a zero in the first row and the first coloumn and update a and b
+2 Then if an element of i and j are zero then i 0 and 0 j should be zero
+3 then check the markers i j is zero if 0 j or i 0 are zero  ex: 1 2 is zero if 1 0 is zero of 0 2 is zero
+4 if the a b are true then whole row and coloumn are zero
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+        bool a=false;
+        bool b=false;
+        int rows=matrix.size();
+        int cols=matrix[0].size();
+        for(int i=0;i<rows;i++){
+            if(matrix[i][0]==0){
+                a=true;
+                break;
+            }
+        }
+               for(int i=0;i<cols;i++){
+            if(matrix[0][i]==0){
+                b=true;
+                break;
+            }
+                   
+        }
+        for(int i=1;i<rows;i++){
+            for(int j=1;j<cols;j++){
+                if(matrix[i][j]==0){
+                    matrix[i][0]=0;
+                    matrix[0][j]=0;
+                }
+            }
+            
+        }
+        for(int i=1;i<rows;i++){
+            for(int j=1;j<cols;j++){
+if(matrix[0][j]==0||matrix[i][0]==0){
+    matrix[i][j]=0;
+}}
+        }
+        if(a){
+            for(int i=0;i<rows;i++){
+                matrix[i][0]=0;
+            }
+        }
+    if(b){
+        for(int i=0;i<cols;i++){
+            matrix[0][i]=0;
+        }
+    }
+    }
+};
