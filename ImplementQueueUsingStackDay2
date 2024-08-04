@@ -1,0 +1,50 @@
+6th problem on Day2
+Implement queue using stack
+Here push pop peek and isempty are done 
+we use two stacks and if empty we check both
+to push we push into in
+to pop we will check if out is empty if yes transfer from in to out the store the value of top of out in a var and pop the element from the out and return the value of top
+to peek we do the same thing but we do not pop it but just return the top of the out stack
+transfer is done until in is empty we push the val of top of in and we pop from in
+#include <stack>
+using namespace std;
+
+class MyQueue {
+    private:
+    stack<int>in;
+    stack<int>out;
+    void transfer(){
+        while(!in.empty()){
+        out.push(in.top());
+        in.pop();}
+    }
+public:
+    MyQueue() {
+    }
+    
+    void push(int x) {
+        in.push(x);
+    }
+    
+    int pop() {
+      if(out.empty()){
+          transfer();
+      }
+        int a=out.top();
+        out.pop();
+        return a;
+    }
+    
+    int peek() {
+        if (out.empty()) {
+            transfer();
+        }
+        return out.top();
+    }
+    
+    bool empty() {
+        return in.empty()&&out.empty();
+    }
+
+
+};
