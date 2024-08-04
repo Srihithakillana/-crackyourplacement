@@ -1,0 +1,12 @@
+Solved 2nd prob of day2
+Maximum product of three numbers
+First multiplied the first three and last three numbers after sorting but due to a wrong answer
+Changed the multiplication among the two small and the largest number
+class Solution {
+public:
+    int maximumProduct(vector<int>& nums) {
+       sort(nums.begin(),nums.end());
+        int n=nums.size();
+        return max(nums[0]*nums[1]*nums[n-1],nums[n-1]*nums[n-2]*nums[n-3]);
+    }
+};
