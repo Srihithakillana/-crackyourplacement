@@ -1,0 +1,18 @@
+solved 3rd problem of day 2
+To find the title according to the column number
+First decremented the c and the added the %26 value to A 
+Then divided by 26
+Reversed the string to get the answer
+class Solution {
+public:
+    string convertToTitle(int c) {
+        string ans="";
+        while(c>0){
+            c--;
+            ans+=char((c)%26+'A');
+            c=c/26;
+        }
+        reverse(ans.begin(),ans.end());
+        return ans;
+    }
+};
