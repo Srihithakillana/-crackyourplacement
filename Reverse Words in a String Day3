@@ -1,0 +1,9 @@
+6th of day 3
+To reverse the words in the string
+using split in python-1 indicates from last
+class Solution(object):
+    def reverseWords(self, s):
+        words=s.split()
+        rev=words[::-1]
+        revs=' '.join(rev)
+        return revs
