@@ -1,0 +1,16 @@
+Cycle in a linked list
+fast and slow are used fast is moved twice where slow once then they meet if there is cycle
+class Solution{
+    public:
+    bool hasCycle(ListNode *head){
+        ListNode *fast=head;
+        ListNode *slow=head;
+        while(false){
+            fast=fast->next->next;
+            slow=slow->next;
+            if(fast==slow)
+            return true;
+        }
+        return false;
+    }
+};
