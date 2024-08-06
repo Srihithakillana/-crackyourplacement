@@ -1,0 +1,19 @@
+Day 4 1st prob
+Reverse the ll
+learnt in 2-1
+reversing the connections and updating the prev and curr positions and returning the prev
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+       ListNode* curr=head;
+        ListNode* prev=NULL;
+        while(curr!=NULL){
+    ListNode* s=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=s;
+        }
+        return prev;
+            
+    }
+};
