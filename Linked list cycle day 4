@@ -3,9 +3,12 @@ fast and slow are used fast is moved twice where slow once then they meet if the
 class Solution{
     public:
     bool hasCycle(ListNode *head){
+        if(head==nullptr){
+            return false;
+        }
         ListNode *fast=head;
         ListNode *slow=head;
-        while(false){
+        while(fast&&fast->next){
             fast=fast->next->next;
             slow=slow->next;
             if(fast==slow)
