@@ -1,0 +1,24 @@
+2nd prob on day 3
+Using dp 
+initialize an array with 0s and then give the result as the sum of i>>1 and if odd n0. add 1
+ex: 3 =0011
+0011>>1
+0001
+result[1]+(1&1)
+1+1=2(because result[1]=result[1>>1]+i&1==1)
+
+#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    vector<int> countBits(int n) {
+        vector<int> result(n + 1, 0);
+        
+        for (int i = 1; i <= n; ++i) {
+            result[i] = result[i >> 1] + (i & 1);
+        }
+        
+        return result;
+    }
+};
