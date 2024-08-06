@@ -1,0 +1,17 @@
+2nd on day3 
+To find the index of first 
+we check if first are same if yes then take the substring as the needle size if both are same return the index else -1
+class Solution {
+public:
+    int strStr(string haystack, string needle) {
+        for(int i=0;i<haystack.size();i++){
+        if(haystack[i]==needle[0]){
+string a=haystack.substr(i,needle.size());
+            if(a==needle){
+                return i;
+            }
+        }
+        }
+        return -1;
+    }
+};
