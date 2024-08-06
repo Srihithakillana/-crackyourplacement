@@ -1,0 +1,18 @@
+1st problem on day 3
+Valid parethesis
+First already solved in cpp but going to change to python 
+Here we will store a list of mappings for every closing bracket
+if it is not closing then append it to the stack
+whereas if it is not pop the stack and check the equity b/w the top and mappings if not map of the closing to the opening of the top then return false
+class Solution:
+    def isValid(self, s: str) -> bool:
+        mapp={')':'(','}':'{',']':'['}
+        stack=[]
+        for i in s:
+            if i in mapp:
+                topp=stack.pop()  if stack else '#'
+                if topp!=mapp[i]:
+                    return False
+            else:
+                stack.append(i)
+        return not stack;
