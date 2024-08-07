@@ -1,0 +1,20 @@
+5th problem of day 5
+To multiply two linked lists
+Here we convert each list to corresponding numbers by multiplying 10 every time and adding the node value and return multiplicted value of the both numbers
+class solution {
+  public:
+    long long multiplyTwoLists(Node *first, Node *second) {
+      long long a=0;
+      long long b=0;
+      while(first!=nullptr){
+          a=(a*10+first->data)%1000000007;
+          first=first->next;
+      }
+      while(second!=nullptr){
+          b=(b*10+second->data)%1000000007;
+          second=second->next;
+      }
+      return (a*b)%1000000007;
+    }
+    
+};
