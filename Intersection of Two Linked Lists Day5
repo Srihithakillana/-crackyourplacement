@@ -1,0 +1,19 @@
+To find the intersection in both the linked lists
+Here the both are checked until they are equal
+if they reach end it leads to nullptr
+if they are equal then they found the intersection node
+ore else if they both are nullptr then it returns nullptr as there is no intersection among them
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+      ListNode* a=headA;
+        ListNode* b=headB;
+        while(a!=b){
+        a=(a==nullptr)?headB:a->next;
+            b=(b==nullptr)?headA:b->next;
+            
+        }
+        return a;
+        
+    }
+};
