@@ -1,0 +1,17 @@
+2nd prob on day 5
+Here we check if they are equal if yes then skip next or else take the next node
+Had some trouble as i first used the temp->next first int the condition whick lead to an error
+As i checked it first the next pointer is check if temp is null hence we should first check the temp then the next value
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        ListNode* temp=head;
+        while(temp!=NULL&&temp->next){
+if(temp->val==temp->next->val){
+    temp->next=temp->next->next;
+    continue;
+}temp=temp->next;
+        }
+        return head;
+    }
+};
