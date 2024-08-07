@@ -1,0 +1,22 @@
+Did 3rd on day 5
+Here we can just skip if value is equal to zero 
+But if the head contains the value and not a null 
+Then we should move the head to next until we get other number
+
+class Solution {
+public:
+    ListNode* removeElements(ListNode* head, int vali) {
+          while(head!=nullptr&&head->val==vali){
+       head=head->next;
+        }
+        ListNode* temp=head;
+        while(temp!=NULL&&temp->next!=nullptr){
+if(temp->next->val==vali){
+    temp->next=temp->next->next;
+    continue;
+}
+        temp=temp->next;}
+      
+        return head;
+    }
+};
