@@ -1,0 +1,15 @@
+1st prob on day 5
+To get the decimal number from linked list 
+Here multiply every time with 2 and add the value of the node 
+Because as we divide with 2 and gets the remainder in the same way to get the reverse just multiply by  and add the node value
+class Solution {
+public:
+    int getDecimalValue(ListNode* head) {
+        int num=0;
+        while(head!=NULL){
+    num=num*2+head->val;
+            head=head->next;
+        }
+        return num;
+    }
+};
