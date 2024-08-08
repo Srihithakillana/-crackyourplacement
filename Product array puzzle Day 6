@@ -1,0 +1,26 @@
+Did 3rd problem on day 6
+Product array puzzle
+Here we will take an array and store the multiplication of prefixes
+Then we will start from the end of the array and change the array in which we stored the result of prefixes and multiply with suffix which is initialized to 1 
+then multiply the suffix value with the give array value
+Then return the array in which we stored the result of prefixes
+class Solution {
+  public:
+    // nums: given vector
+    // return the Product vector P that hold product except self at each index
+    vector<long long int> productExceptSelf(vector<long long int>& nums) {
+    int n=nums.size();
+    vector<long long int>a(n,1);
+    for(int i=1;i<n;i++){
+        a[i]=a[i-1]*nums[i-1];
+        
+    }
+    long long int suffix=1;
+    for(int i=n-1;i>=0;i--){
+        a[i]*=suffix;
+        suffix*=nums[i];
+    }
+        // code herer
+        return a;
+    }
+};
