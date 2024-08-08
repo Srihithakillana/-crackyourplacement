@@ -1,0 +1,46 @@
+1st prob on Day6
+Delete nodes having greater value on right
+Here we have to give the greater values 
+So first we have to reverse the list and then use a max node to caluclate if the curr node is greater or smaller
+If smaller then skip the current node
+If larger then we take the continuation and the current node will be the max node
+Then again reverse the list to get the result
+class Solution
+{
+    public:
+    Node *compute(Node *head)
+    {
+        Node *curr=head,*prev=NULL,*next=NULL;
+        while(curr!=NULL){
+            next=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=next;
+        }
+        head=prev;
+        Node* max=head;
+        curr=head;
+        while(curr!=NULL&&curr->next!=nullptr){
+            if(curr->next->data<max->data)
+        
+            {
+                curr->next=curr->next->next;
+                
+            }else{
+                curr=curr->next;
+                max=curr;
+            }
+        }
+        curr=head,prev=NULL,next=NULL;
+        while(curr!=NULL){
+            next=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=next;
+        }
+        head=prev;
+        return head;
+        // your code goes here
+    }
+    
+};
