@@ -1,0 +1,30 @@
+6th prob on day 6
+Gas station 
+Here if gas sum is less than the cost sum the return -1
+Calculate total everytime by gas-cost and if less than 0 change the start to next position return the start 
+class Solution {
+public:
+    int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
+        int sum=0,sum1=0;
+        for(int i=0;i<gas.size();i++){
+            sum+=gas[i];
+        }
+        for(int i=0;i<cost.size();i++){
+            sum1+=cost[i];
+        }
+        if(sum<sum1){
+            return -1;
+        }
+        int start=0;
+        int total=0;
+for(int i=0;i<gas.size();i++){
+    total+=(gas[i]-cost[i]);
+    if(total<0){
+        total=0;
+        start=i+1;
+    }
+    
+}
+return start;
+    }
+};
