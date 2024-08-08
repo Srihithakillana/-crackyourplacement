@@ -1,0 +1,58 @@
+2nd prob on day 6
+To check whether the linked list is a palindrome
+Here it is one solution 
+Here we recursively call the check function
+p goes to the end
+And for every iteration temp moves to next
+we compare and return 
+class Solution {
+public:
+    ListNode* temp;
+    bool isPalindrome(ListNode* head) {
+        temp = head;
+        return check(head);
+    }
+    
+    bool check(ListNode* p) {
+        if (NULL == p) return true;
+        bool isPal = check(p->next) & (temp->val == p->val);
+        temp = temp->next;
+        return isPal;
+    }
+};
+Other solution is
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+     ListNode* curr=head;
+        ListNode* temp=head;
+        ListNode* prev=NULL;
+        ListNode* next=NULL;
+        while(curr!=NULL){
+            next=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=next;
+        }
+        head=prev;
+        curr=head;
+        while(temp!=NULL&&curr!=NULL){
+            if(temp->val!=curr->val){
+                return false;
+            }
+            temp=temp->next;
+            curr=curr->next;
+        }
+        return true;
+    }
+};
