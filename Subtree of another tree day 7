@@ -1,0 +1,29 @@
+Here to find if the subtree is present or not
+Here we check if they are same or not using a function if yes return true
+Or else check for the left or the right of root
+TO check if they are not same check their values if not same then return false or else return if both the left of root,subrooot and right of root,subroot return treu
+class Solution {
+public:
+    bool isSubtree(TreeNode* root, TreeNode* subtree) {
+     if(root==nullptr){
+         return false;
+     }   
+        if(isSame(root,subtree)){
+            return true;
+        }
+        return isSubtree(root->left,subtree)||isSubtree(root->right,subtree);
+        
+    }
+    bool isSame(TreeNode* root,TreeNode* subroot)
+    {
+if(!root&&!subroot)
+    return true;
+        if(!root||!subroot)
+            return false;
+        if(root->val!=subroot->val){
+            return false;
+        }
+        return isSame(root->left,subroot->left)&&isSame(root->right,subroot->right);
+    }
+    
+};
