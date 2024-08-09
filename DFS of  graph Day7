@@ -1,0 +1,24 @@
+Done 1st prob on day 7
+Dfs of a graph
+Here the dfs is called for the first 0 node 
+Then visit the node and push it into the answer 
+one node is searched in depth then goes to other node
+class Solution {
+  public:
+    // Function to return a list containing the DFS traversal of the graph.
+   void dfs(int n, vector<int>& ans, vector<int>& vis, vector<int> adj[]) {
+    ans.push_back(n);   // Add the current node to the DFS result
+    vis[n] = 1;         // Mark the current node as visited
+    for (auto x : adj[n]) {  // Explore all adjacent nodes
+        if (vis[x] == 0)    // If the adjacent node is not visited
+            dfs(x, ans, vis, adj);  // Recursively call DFS on the adjacent node
+    }
+}
+
+vector<int> dfsOfGraph(int V, vector<int> adj[]) {
+    vector<int> ans;
+    vector<int> vis(V, 0);  // Initialize visited array with 0s
+    dfs(0, ans, vis, adj);  // Start DFS from node 0
+    return ans;  // Return the DFS traversal result
+}
+};
