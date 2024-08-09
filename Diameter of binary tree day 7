@@ -1,0 +1,23 @@
+3rd problem of day 7
+To find the diameter of a binary tree
+Here we calculate the height for every left and right of the node
+Then calculte the max of both land r then return max of l and r +1
+class Solution {
+public:
+    int diameterOfBinaryTree(TreeNode* root) {
+        int ans=0;
+        calculate(root,ans);
+        return ans;
+    }
+    int calculate(TreeNode* root,int& ans){
+       
+        if(root==nullptr){
+            return 0;
+        }
+        int l=calculate(root->left,ans);
+         int r= calculate(root->right,ans);
+            ans=max(ans,l+r);
+        
+        return 1+max(l,r);
+    }
+};
