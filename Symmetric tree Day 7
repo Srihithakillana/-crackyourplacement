@@ -1,0 +1,24 @@
+4rth on day 7
+Here the tree is checked for symmetry here there is other function to calculate if it is symmetric or not
+If both are null then true or if one is not null the false
+then we recursively check if the values of the nodes are equal and the left of first tree is mirror to right of second tree
+and right of first tree is mirror to left of second tree
+class Solution {
+public:
+    bool isSymmetric(TreeNode* root) {
+        if(root==nullptr){
+            return true;
+        }
+        return isMirror(root->left,root->right);
+    }
+    bool isMirror(TreeNode* l1,TreeNode* l2){
+    if(l1==nullptr&&l2==nullptr){
+        return true;
+    }
+        if(l1==nullptr||l2==nullptr){
+            return false;
+        }
+        return (l1->val==l2->val)&&isMirror(l1->left,l2->right)&&isMirror(l1->right,l2->left);
+        }
+};
+
