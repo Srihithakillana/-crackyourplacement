@@ -1,0 +1,21 @@
+Here to get the smallest difference between the elements
+Here we sort and find the diff and updates with the least diff
+Using sliding window
+class Solution{
+    public:
+    long long findMinDiff(vector<long long> a, long long n, long long m){
+    sort(a.begin(),a.end());
+    int i=0;
+    int j=m-1;
+    long long ans=INT_MAX;
+    long long d=0;
+    while(j<n){
+        d=a[j]-a[i];
+        ans=min(ans,d);
+        i++;
+        j++;
+        
+    }
+    return ans;
+    }   
+};
