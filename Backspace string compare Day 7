@@ -1,0 +1,28 @@
+Dis 8th prob on day7
+Here if we encounter # pop or else push and return the string by keeping all the elements of the stack into the string
+class Solution {
+public:
+    string hello(string s){
+        stack<char>st;
+        for(char i:s){
+            if(i=='#'){
+                if(!st.empty()){
+st.pop();
+                }
+            }
+            else{
+        st.push(i);
+            }
+        }
+        string ans="";
+        while(!st.empty()){
+            ans+=st.top();
+            st.pop();
+        }
+        return ans;
+       
+    }
+    bool backspaceCompare(string s, string t) {
+      return hello(s)==hello(t);
+    }
+};
