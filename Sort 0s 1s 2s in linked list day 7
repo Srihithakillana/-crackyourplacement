@@ -1,0 +1,28 @@
+10th prob on day 7
+to sort 0 1 2 
+here we take them into vector and sort it and place it again into list
+class Solution
+{
+    public:
+    // your task is to complete this function
+    void sort(Node **head)
+    {
+         if(head==nullptr||*head==nullptr){
+             return;
+         }
+         vector<int>ans;
+         Node* curr=*head;
+         while(curr!=nullptr){
+             ans.push_back(curr->data);
+             curr=curr->next;
+         }
+         std::sort(ans.begin(),ans.end());
+         curr=*head;
+         for(int v:ans){
+             if(curr!=nullptr){
+                 curr->data=v;
+                 curr=curr->next;
+             }
+         }
+    }
+};
