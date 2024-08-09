@@ -1,0 +1,28 @@
+Did 9th prob on day 7
+Here we will find if it is a palindrome after removing characters from it
+Then we will check first and last if not equal we test them out by incrementing left and decrementing right and checking everytime if it is a palindrome
+class Solution {
+public:
+    bool ispal(string s,int i,int j){
+        while(i<j){
+            if(s[i]!=s[j]){
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
+    bool validPalindrome(string s) {
+        int i=0;
+        int j=s.size()-1;
+        while(i<j){
+        if(s[i]!=s[j]){
+    return ispal(s,i+1,j)||ispal(s,i,j-1);
+        }
+            i++;
+            j--;
+        }
+        return true;
+    }
+};
