@@ -1,0 +1,19 @@
+5th prob on day 7
+To invert the tree
+Here we just exchange the root left and right values
+then perform that for every left and right recursively
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        if(root==nullptr){
+            return root;
+        }
+        TreeNode* a;
+        a=root->left;
+        root->left=root->right;
+        root->right=a;
+        invertTree(root->right);
+        invertTree(root->left);
+        return root;
+    }
+};
